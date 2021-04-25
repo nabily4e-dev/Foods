@@ -10,30 +10,16 @@ using System.Windows.Forms;
 
 namespace Foods
 {
-    public partial class Form1 : Form
+    public partial class FormDetails : Form
     {
 
         private bool mouseDown = false;
         private Point lastLocation;
 
-
-        public Form1()
+        public FormDetails()
         {
+
             InitializeComponent();
-        }
-
-        private void CloseButton_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
-
-        private void MinimizeButton_Click(object sender, EventArgs e)
-        {
-            this.WindowState = FormWindowState.Minimized;
-        }
-
-        private void PanelHeader_Paint(object sender, PaintEventArgs e)
-        {
 
         }
 
@@ -45,8 +31,6 @@ namespace Foods
             lastLocation = e.Location;
 
             panelHeader.Cursor = Cursors.SizeAll;
-
-
 
         }
 
@@ -64,13 +48,29 @@ namespace Foods
             if (mouseDown)
             {
 
-                int newX = (this.Location.X - lastLocation.X) + e.X;
-                int newY = (this.Location.Y - lastLocation.Y) + e.Y;
+                int newX = (this.Location.X - lastLocation.X) + e.Location.X;
+                int newY = (this.Location.Y - lastLocation.Y) + e.Location.Y;
 
-                this.Location = new Point(newX, newY);
+                Location = new Point(newX, newY);
 
             }
 
         }
+
+        private void CloseButton_Click(object sender, EventArgs e)
+        {
+
+            this.Close();
+
+        }
+
+        private void CloseButton_MouseEnter(object sender, EventArgs e)
+        {
+
+            closeButton.Cursor = Cursors.Hand;
+
+        }
+
     }
+
 }
