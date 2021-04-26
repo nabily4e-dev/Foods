@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,6 +15,10 @@ namespace Foods
         public static string GetFoodCodeTextBox = "0";
 
         public static string DeleteConfirmed = "";
+
+        public static DataTable dtblAll = new DataTable();
+
+
 
     }
 }

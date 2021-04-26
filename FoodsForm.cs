@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Reporting.WinForms;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -37,7 +38,7 @@ namespace Foods
         private void MinimizeButton_Click(object sender, EventArgs e)
         {
 
-            this.WindowState = FormWindowState.Minimized;
+            WindowState = FormWindowState.Minimized;
 
         }
 
@@ -84,6 +85,8 @@ namespace Foods
 
         private void AutoNum()
         {
+
+            MyGlobalVariables.Categories.Clear();
 
             foodCodeTextBox.Text = Database.GetData("select max(itemcode)+1 from food").Rows[0][0].ToString();
 
@@ -172,7 +175,16 @@ namespace Foods
             }
 
             foodDataGridView.DataSource = dtblAll;
+
+            CounterLabelView();
             
+        }
+
+        private void CounterLabelView()
+        {
+
+            CountLabel.Text = "معروض " + foodDataGridView.Rows.Count + " أكلة";
+
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -184,9 +196,9 @@ namespace Foods
 
             Database.OpenConnection();
 
-            AutoNum();
-
             ShowData();
+
+            AutoNum();
 
         }
 
@@ -625,9 +637,9 @@ namespace Foods
                     messageLabel.Text += ", " + "تم تعديل المقادير";
 
 
-                    AutoNum();
-
                     ShowData();
+
+                    AutoNum();
 
                 }
                 catch (Exception ex)
@@ -694,9 +706,10 @@ namespace Foods
 
             messageLabel.Text = MyGlobalVariables.DeleteConfirmed;
 
+            ShowData();
+
             AutoNum();
 
-            ShowData();
 
         }
 
@@ -717,14 +730,137 @@ namespace Foods
             dv.RowFilter = strPattern;
             foodDataGridView.DataSource = dv;
 
+            CounterLabelView();
+
         }
 
         private void ReportButton_Click(object sender, EventArgs e)
         {
 
-            ReportForm form = new Foods.ReportForm();
+            ReportForm form = new ReportForm();
+            form.Icon = this.Icon;
+
+            ReportDataSource rds = new ReportDataSource("FoodDataSet", dtblAll);
+            form.reportViewer1.LocalReport.DataSources.Clear();
+            form.reportViewer1.LocalReport.DataSources.Add(rds);
+            form.reportViewer1.LocalReport.Refresh();
+
+            form.ShowDialog();
+
+        }
+
+        private void FoodSuggestionBbutton_Click(object sender, EventArgs e)
+        {
+
+            if (suggestCategoryTextBox.Text.Trim() != "")
+            {
+
+                string FilterString = "";
+
+                for(int x = 0; x > MyGlobalVariables.Categories.Count; x += 1)
+                {
+
+                    FilterString += " categories like '%" + MyGlobalVariables.Categories[x].Item2 + "%' ";
+                    if (x < MyGlobalVariables.Categories.Count - 1) FilterString += " or ";
+
+                }
+
+                DataRow[] rows = dtblAll.Select(FilterString);
+
+                if (rows.Count() > 0)
+                {
+
+                    dtblAll = rows.CopyToDataTable();
+                    foodDataGridView.DataSource = dtblAll;
+
+                }
+                else
+                {
+
+                    messageLabel.Text = ">> " + "لا توجد أكلات حسب التصنيف المدخل!";
+                    return;
+
+                }
+
+
+            }
+
+            if (dtblAll.Rows.Count > 0)
+            {
+
+                FormDetails form = new FormDetails();
+
+                messageLabel.Text = ">> ";
+
+                Random rand = new Random();
+
+                int RandomFoodIndex = rand.Next(0, dtblAll.Rows.Count);
+
+                form.FoodNameTextBox.Text = dtblAll.Rows[RandomFoodIndex][0].ToString();
+                form.FoodCategoriesTextBox.Text = dtblAll.Rows[RandomFoodIndex][2].ToString();
+                form.FoodComponentsTextBox.Text = dtblAll.Rows[RandomFoodIndex][3].ToString();
+                form.HowToTextBox.Text = dtblAll.Rows[RandomFoodIndex][4].ToString();
+
+                MemoryStream ms = new MemoryStream((byte[])dtblAll.Rows[RandomFoodIndex][1]);
+                form.foodPictureBox.Image = Image.FromStream(ms);
+
+
+                CounterLabelView();
+
+
+                form.ShowDialog();
+
+            }
+
+        }
+
+        private void AddSuggestionButton_Click(object sender, EventArgs e)
+        {
+
+            addButton.Enabled = false;
+            deleteAllButton.Enabled = false;
+            editButton.Enabled = false;
+
+            MyGlobalVariables.Categories.Clear();
+
+            CategoryForm form = new CategoryForm();
+
             form.Icon = this.Icon;
             form.ShowDialog();
+
+            suggestCategoryTextBox.Clear();
+
+            foreach(var i in MyGlobalVariables.Categories)
+            {
+
+                suggestCategoryTextBox.Text += i.Item2 + " , ";
+
+            }
+
+        }
+
+        private void ViewAllFoodsButton_Click(object sender, EventArgs e)
+        {
+
+            MyGlobalVariables.dtblAll = dtblAll;
+
+            ViewAllFoodsForm form = new ViewAllFoodsForm();
+
+            form.ShowDialog();
+
+        }
+
+        private void Button1_Click(object sender, EventArgs e)
+        {
+
+            ShowData();
+
+        }
+
+        private void BackupOnClick_Click(object sender, EventArgs e)
+        {
+
+            new BackupForm().ShowDialog();
 
         }
     }

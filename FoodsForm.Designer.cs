@@ -28,10 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panelHeader = new System.Windows.Forms.Panel();
-            this.iconPictureBox = new System.Windows.Forms.PictureBox();
             this.minimizeButton = new System.Windows.Forms.Button();
             this.closeButton = new System.Windows.Forms.Button();
             this.foodCodeTextBox = new System.Windows.Forms.TextBox();
@@ -77,16 +76,22 @@
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CreateViewButton = new System.Windows.Forms.Button();
+            this.ViewAllFoodsButton = new System.Windows.Forms.Button();
             this.foodPictureBox = new System.Windows.Forms.PictureBox();
+            this.iconPictureBox = new System.Windows.Forms.PictureBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.CountLabel = new System.Windows.Forms.Label();
+            this.BackupOnClick = new System.Windows.Forms.Label();
             this.panelHeader.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.foodDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.foodPictureBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox)).BeginInit();
             this.SuspendLayout();
             // 
             // panelHeader
             // 
             this.panelHeader.BackColor = System.Drawing.Color.Navy;
+            this.panelHeader.Controls.Add(this.BackupOnClick);
             this.panelHeader.Controls.Add(this.iconPictureBox);
             this.panelHeader.Controls.Add(this.minimizeButton);
             this.panelHeader.Controls.Add(this.closeButton);
@@ -99,17 +104,6 @@
             this.panelHeader.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PanelHeader_MouseDown);
             this.panelHeader.MouseMove += new System.Windows.Forms.MouseEventHandler(this.PanelHeader_MouseMove);
             this.panelHeader.MouseUp += new System.Windows.Forms.MouseEventHandler(this.PanelHeader_MouseUp);
-            // 
-            // iconPictureBox
-            // 
-            this.iconPictureBox.BackColor = System.Drawing.Color.Transparent;
-            this.iconPictureBox.Location = new System.Drawing.Point(1, 1);
-            this.iconPictureBox.Margin = new System.Windows.Forms.Padding(2);
-            this.iconPictureBox.Name = "iconPictureBox";
-            this.iconPictureBox.Size = new System.Drawing.Size(40, 40);
-            this.iconPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.iconPictureBox.TabIndex = 43;
-            this.iconPictureBox.TabStop = false;
             // 
             // minimizeButton
             // 
@@ -162,7 +156,7 @@
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Arial Narrow", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.InactiveBorder;
-            this.label2.Location = new System.Drawing.Point(10, 68);
+            this.label2.Location = new System.Drawing.Point(10, 67);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(127, 25);
@@ -176,12 +170,12 @@
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Arial Narrow", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.SystemColors.InactiveBorder;
-            this.label3.Location = new System.Drawing.Point(3, 132);
+            this.label3.Location = new System.Drawing.Point(11, 132);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(135, 25);
+            this.label3.Size = new System.Drawing.Size(129, 25);
             this.label3.TabIndex = 7;
-            this.label3.Text = "صورة الأكلة     :";
+            this.label3.Text = "صورة الأكلة    :";
             // 
             // imagePathTextBox
             // 
@@ -477,10 +471,11 @@
             this.foodSuggestionBbutton.Location = new System.Drawing.Point(609, 535);
             this.foodSuggestionBbutton.Margin = new System.Windows.Forms.Padding(2);
             this.foodSuggestionBbutton.Name = "foodSuggestionBbutton";
-            this.foodSuggestionBbutton.Size = new System.Drawing.Size(193, 32);
+            this.foodSuggestionBbutton.Size = new System.Drawing.Size(200, 32);
             this.foodSuggestionBbutton.TabIndex = 26;
             this.foodSuggestionBbutton.Text = "إقتراح أكلة";
             this.foodSuggestionBbutton.UseVisualStyleBackColor = false;
+            this.foodSuggestionBbutton.Click += new System.EventHandler(this.FoodSuggestionBbutton_Click);
             // 
             // exitButton
             // 
@@ -502,22 +497,23 @@
             this.addSuggestionButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(138)))), ((int)(((byte)(230)))));
             this.addSuggestionButton.FlatAppearance.BorderSize = 0;
             this.addSuggestionButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.addSuggestionButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.addSuggestionButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.addSuggestionButton.ForeColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.addSuggestionButton.Location = new System.Drawing.Point(775, 496);
+            this.addSuggestionButton.Location = new System.Drawing.Point(776, 497);
             this.addSuggestionButton.Margin = new System.Windows.Forms.Padding(2);
             this.addSuggestionButton.Name = "addSuggestionButton";
-            this.addSuggestionButton.Size = new System.Drawing.Size(27, 38);
+            this.addSuggestionButton.Size = new System.Drawing.Size(33, 38);
             this.addSuggestionButton.TabIndex = 28;
             this.addSuggestionButton.Text = "+";
             this.addSuggestionButton.UseVisualStyleBackColor = false;
+            this.addSuggestionButton.Click += new System.EventHandler(this.AddSuggestionButton_Click);
             // 
             // suggestCategoryTextBox
             // 
             this.suggestCategoryTextBox.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.suggestCategoryTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.suggestCategoryTextBox.Font = new System.Drawing.Font("Arial", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.suggestCategoryTextBox.Location = new System.Drawing.Point(609, 496);
+            this.suggestCategoryTextBox.Font = new System.Drawing.Font("Arial", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.suggestCategoryTextBox.Location = new System.Drawing.Point(609, 497);
             this.suggestCategoryTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.suggestCategoryTextBox.Multiline = true;
             this.suggestCategoryTextBox.Name = "suggestCategoryTextBox";
@@ -619,7 +615,7 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Arial Narrow", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.InactiveBorder;
-            this.label1.Location = new System.Drawing.Point(10, 98);
+            this.label1.Location = new System.Drawing.Point(11, 97);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(128, 25);
@@ -655,30 +651,30 @@
             this.Column4,
             this.Column5,
             this.Column6});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.MidnightBlue;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.Menu;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(138)))), ((int)(((byte)(230)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.Menu;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.foodDataGridView.DefaultCellStyle = dataGridViewCellStyle2;
-            this.foodDataGridView.Location = new System.Drawing.Point(467, 116);
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.MidnightBlue;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.Menu;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(138)))), ((int)(((byte)(230)))));
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.Menu;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.foodDataGridView.DefaultCellStyle = dataGridViewCellStyle4;
+            this.foodDataGridView.Location = new System.Drawing.Point(467, 148);
             this.foodDataGridView.Margin = new System.Windows.Forms.Padding(2);
             this.foodDataGridView.Name = "foodDataGridView";
             this.foodDataGridView.ReadOnly = true;
-            this.foodDataGridView.Size = new System.Drawing.Size(512, 360);
+            this.foodDataGridView.Size = new System.Drawing.Size(512, 328);
             this.foodDataGridView.TabIndex = 42;
             this.foodDataGridView.SelectionChanged += new System.EventHandler(this.FoodDataGridView_SelectionChanged);
             // 
             // Column1
             // 
             this.Column1.DataPropertyName = "itemname";
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.MidnightBlue;
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.Menu;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(138)))), ((int)(((byte)(230)))));
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.InactiveBorder;
-            this.Column1.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.MidnightBlue;
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.Menu;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(138)))), ((int)(((byte)(230)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.InactiveBorder;
+            this.Column1.DefaultCellStyle = dataGridViewCellStyle3;
             this.Column1.HeaderText = "الأكلة";
             this.Column1.Name = "Column1";
             this.Column1.ReadOnly = true;
@@ -743,6 +739,22 @@
             this.CreateViewButton.Visible = false;
             this.CreateViewButton.Click += new System.EventHandler(this.CreateViewButton_Click);
             // 
+            // ViewAllFoodsButton
+            // 
+            this.ViewAllFoodsButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(138)))), ((int)(((byte)(230)))));
+            this.ViewAllFoodsButton.FlatAppearance.BorderSize = 0;
+            this.ViewAllFoodsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ViewAllFoodsButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ViewAllFoodsButton.ForeColor = System.Drawing.SystemColors.InactiveBorder;
+            this.ViewAllFoodsButton.Location = new System.Drawing.Point(467, 114);
+            this.ViewAllFoodsButton.Margin = new System.Windows.Forms.Padding(2);
+            this.ViewAllFoodsButton.Name = "ViewAllFoodsButton";
+            this.ViewAllFoodsButton.Size = new System.Drawing.Size(136, 28);
+            this.ViewAllFoodsButton.TabIndex = 44;
+            this.ViewAllFoodsButton.Text = "عرض الأكلات";
+            this.ViewAllFoodsButton.UseVisualStyleBackColor = false;
+            this.ViewAllFoodsButton.Click += new System.EventHandler(this.ViewAllFoodsButton_Click);
+            // 
             // foodPictureBox
             // 
             this.foodPictureBox.BackColor = System.Drawing.SystemColors.ActiveCaption;
@@ -756,12 +768,69 @@
             this.foodPictureBox.TabStop = false;
             this.foodPictureBox.Click += new System.EventHandler(this.FoodPictureBox_Click);
             // 
+            // iconPictureBox
+            // 
+            this.iconPictureBox.BackColor = System.Drawing.Color.Transparent;
+            this.iconPictureBox.Location = new System.Drawing.Point(1, 1);
+            this.iconPictureBox.Margin = new System.Windows.Forms.Padding(2);
+            this.iconPictureBox.Name = "iconPictureBox";
+            this.iconPictureBox.Size = new System.Drawing.Size(40, 40);
+            this.iconPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.iconPictureBox.TabIndex = 43;
+            this.iconPictureBox.TabStop = false;
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(138)))), ((int)(((byte)(230)))));
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.SystemColors.InactiveBorder;
+            this.button1.Location = new System.Drawing.Point(607, 114);
+            this.button1.Margin = new System.Windows.Forms.Padding(2);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(136, 28);
+            this.button1.TabIndex = 45;
+            this.button1.Text = "عرض جميع الأكلات";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.Button1_Click);
+            // 
+            // CountLabel
+            // 
+            this.CountLabel.AutoSize = true;
+            this.CountLabel.BackColor = System.Drawing.Color.Transparent;
+            this.CountLabel.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CountLabel.ForeColor = System.Drawing.SystemColors.InactiveBorder;
+            this.CountLabel.Location = new System.Drawing.Point(747, 120);
+            this.CountLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.CountLabel.Name = "CountLabel";
+            this.CountLabel.Size = new System.Drawing.Size(13, 20);
+            this.CountLabel.TabIndex = 46;
+            this.CountLabel.Text = ".";
+            // 
+            // BackupOnClick
+            // 
+            this.BackupOnClick.AutoSize = true;
+            this.BackupOnClick.BackColor = System.Drawing.Color.Transparent;
+            this.BackupOnClick.Font = new System.Drawing.Font("Arial Narrow", 14F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BackupOnClick.ForeColor = System.Drawing.SystemColors.InactiveBorder;
+            this.BackupOnClick.Location = new System.Drawing.Point(800, 12);
+            this.BackupOnClick.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.BackupOnClick.Name = "BackupOnClick";
+            this.BackupOnClick.Size = new System.Drawing.Size(99, 23);
+            this.BackupOnClick.TabIndex = 47;
+            this.BackupOnClick.Text = "النسخ الإحتياطي";
+            this.BackupOnClick.Click += new System.EventHandler(this.BackupOnClick_Click);
+            // 
             // FoodsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.MidnightBlue;
             this.ClientSize = new System.Drawing.Size(991, 578);
+            this.Controls.Add(this.CountLabel);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.ViewAllFoodsButton);
             this.Controls.Add(this.CreateViewButton);
             this.Controls.Add(this.foodDataGridView);
             this.Controls.Add(this.searchTextBox);
@@ -813,9 +882,10 @@
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FoodsForm_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.panelHeader.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox)).EndInit();
+            this.panelHeader.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.foodDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.foodPictureBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -871,6 +941,10 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
+        private System.Windows.Forms.Button ViewAllFoodsButton;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label CountLabel;
+        private System.Windows.Forms.Label BackupOnClick;
     }
 }
 

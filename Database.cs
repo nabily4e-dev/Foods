@@ -70,6 +70,10 @@ namespace Foods
 
         }
 
+        public static implicit operator Database(DataTable v)
+        {
+            throw new NotImplementedException();
+        }
     }
 
 }

@@ -31,16 +31,16 @@
             this.panelHeader = new System.Windows.Forms.Panel();
             this.closeButton = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
-            this.foodNameTextBox = new System.Windows.Forms.TextBox();
+            this.FoodNameTextBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.foodPictureBox = new System.Windows.Forms.PictureBox();
-            this.howToTextBox = new System.Windows.Forms.TextBox();
+            this.HowToTextBox = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.foodCategoriesTextBox = new System.Windows.Forms.TextBox();
+            this.FoodCategoriesTextBox = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.exitButton = new System.Windows.Forms.Button();
+            this.FoodComponentsTextBox = new System.Windows.Forms.TextBox();
+            this.ExitButton = new System.Windows.Forms.Button();
             this.panelHeader.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.foodPictureBox)).BeginInit();
             this.SuspendLayout();
@@ -88,16 +88,17 @@
             this.label8.TabIndex = 32;
             this.label8.Text = "تفاصيل الأكلة المقترحة";
             // 
-            // foodNameTextBox
+            // FoodNameTextBox
             // 
-            this.foodNameTextBox.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.foodNameTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.foodNameTextBox.Font = new System.Drawing.Font("Arial", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.foodNameTextBox.Location = new System.Drawing.Point(206, 138);
-            this.foodNameTextBox.Margin = new System.Windows.Forms.Padding(2);
-            this.foodNameTextBox.Name = "foodNameTextBox";
-            this.foodNameTextBox.Size = new System.Drawing.Size(597, 25);
-            this.foodNameTextBox.TabIndex = 42;
+            this.FoodNameTextBox.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.FoodNameTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.FoodNameTextBox.Font = new System.Drawing.Font("Arial", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FoodNameTextBox.Location = new System.Drawing.Point(206, 138);
+            this.FoodNameTextBox.Margin = new System.Windows.Forms.Padding(2);
+            this.FoodNameTextBox.Name = "FoodNameTextBox";
+            this.FoodNameTextBox.ReadOnly = true;
+            this.FoodNameTextBox.Size = new System.Drawing.Size(597, 25);
+            this.FoodNameTextBox.TabIndex = 42;
             // 
             // label1
             // 
@@ -124,18 +125,19 @@
             this.foodPictureBox.TabIndex = 40;
             this.foodPictureBox.TabStop = false;
             // 
-            // howToTextBox
+            // HowToTextBox
             // 
-            this.howToTextBox.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.howToTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.howToTextBox.Font = new System.Drawing.Font("Arial", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.howToTextBox.Location = new System.Drawing.Point(206, 370);
-            this.howToTextBox.Margin = new System.Windows.Forms.Padding(2);
-            this.howToTextBox.Multiline = true;
-            this.howToTextBox.Name = "howToTextBox";
-            this.howToTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.howToTextBox.Size = new System.Drawing.Size(597, 82);
-            this.howToTextBox.TabIndex = 48;
+            this.HowToTextBox.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.HowToTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.HowToTextBox.Font = new System.Drawing.Font("Arial", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.HowToTextBox.Location = new System.Drawing.Point(206, 370);
+            this.HowToTextBox.Margin = new System.Windows.Forms.Padding(2);
+            this.HowToTextBox.Multiline = true;
+            this.HowToTextBox.Name = "HowToTextBox";
+            this.HowToTextBox.ReadOnly = true;
+            this.HowToTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.HowToTextBox.Size = new System.Drawing.Size(597, 82);
+            this.HowToTextBox.TabIndex = 48;
             // 
             // label6
             // 
@@ -163,20 +165,20 @@
             this.label5.TabIndex = 45;
             this.label5.Text = "المقداير           :";
             // 
-            // foodCategoriesTextBox
+            // FoodCategoriesTextBox
             // 
-            this.foodCategoriesTextBox.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.foodCategoriesTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.foodCategoriesTextBox.Font = new System.Drawing.Font("Arial", 12F);
-            this.foodCategoriesTextBox.Location = new System.Drawing.Point(206, 176);
-            this.foodCategoriesTextBox.Margin = new System.Windows.Forms.Padding(2);
-            this.foodCategoriesTextBox.Multiline = true;
-            this.foodCategoriesTextBox.Name = "foodCategoriesTextBox";
-            this.foodCategoriesTextBox.ReadOnly = true;
-            this.foodCategoriesTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.foodCategoriesTextBox.Size = new System.Drawing.Size(597, 81);
-            this.foodCategoriesTextBox.TabIndex = 44;
-            this.foodCategoriesTextBox.WordWrap = false;
+            this.FoodCategoriesTextBox.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.FoodCategoriesTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.FoodCategoriesTextBox.Font = new System.Drawing.Font("Arial", 12F);
+            this.FoodCategoriesTextBox.Location = new System.Drawing.Point(206, 176);
+            this.FoodCategoriesTextBox.Margin = new System.Windows.Forms.Padding(2);
+            this.FoodCategoriesTextBox.Multiline = true;
+            this.FoodCategoriesTextBox.Name = "FoodCategoriesTextBox";
+            this.FoodCategoriesTextBox.ReadOnly = true;
+            this.FoodCategoriesTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.FoodCategoriesTextBox.Size = new System.Drawing.Size(597, 81);
+            this.FoodCategoriesTextBox.TabIndex = 44;
+            this.FoodCategoriesTextBox.WordWrap = false;
             // 
             // label4
             // 
@@ -191,34 +193,35 @@
             this.label4.TabIndex = 43;
             this.label4.Text = "تصنيفات الأكلة  :";
             // 
-            // textBox1
+            // FoodComponentsTextBox
             // 
-            this.textBox1.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox1.Font = new System.Drawing.Font("Arial", 12F);
-            this.textBox1.Location = new System.Drawing.Point(206, 273);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(2);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBox1.Size = new System.Drawing.Size(597, 81);
-            this.textBox1.TabIndex = 49;
-            this.textBox1.WordWrap = false;
+            this.FoodComponentsTextBox.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.FoodComponentsTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.FoodComponentsTextBox.Font = new System.Drawing.Font("Arial", 12F);
+            this.FoodComponentsTextBox.Location = new System.Drawing.Point(206, 273);
+            this.FoodComponentsTextBox.Margin = new System.Windows.Forms.Padding(2);
+            this.FoodComponentsTextBox.Multiline = true;
+            this.FoodComponentsTextBox.Name = "FoodComponentsTextBox";
+            this.FoodComponentsTextBox.ReadOnly = true;
+            this.FoodComponentsTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.FoodComponentsTextBox.Size = new System.Drawing.Size(597, 81);
+            this.FoodComponentsTextBox.TabIndex = 49;
+            this.FoodComponentsTextBox.WordWrap = false;
             // 
-            // exitButton
+            // ExitButton
             // 
-            this.exitButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(138)))), ((int)(((byte)(230)))));
-            this.exitButton.FlatAppearance.BorderSize = 0;
-            this.exitButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.exitButton.ForeColor = System.Drawing.SystemColors.InactiveBorder;
-            this.exitButton.Location = new System.Drawing.Point(754, 527);
-            this.exitButton.Margin = new System.Windows.Forms.Padding(2);
-            this.exitButton.Name = "exitButton";
-            this.exitButton.Size = new System.Drawing.Size(171, 40);
-            this.exitButton.TabIndex = 50;
-            this.exitButton.Text = "خروج";
-            this.exitButton.UseVisualStyleBackColor = false;
+            this.ExitButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(138)))), ((int)(((byte)(230)))));
+            this.ExitButton.FlatAppearance.BorderSize = 0;
+            this.ExitButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ExitButton.ForeColor = System.Drawing.SystemColors.InactiveBorder;
+            this.ExitButton.Location = new System.Drawing.Point(754, 527);
+            this.ExitButton.Margin = new System.Windows.Forms.Padding(2);
+            this.ExitButton.Name = "ExitButton";
+            this.ExitButton.Size = new System.Drawing.Size(171, 40);
+            this.ExitButton.TabIndex = 50;
+            this.ExitButton.Text = "خروج";
+            this.ExitButton.UseVisualStyleBackColor = false;
+            this.ExitButton.Click += new System.EventHandler(this.ExitButton_Click);
             // 
             // FormDetails
             // 
@@ -227,14 +230,14 @@
             this.BackColor = System.Drawing.Color.MidnightBlue;
             this.ClientSize = new System.Drawing.Size(991, 578);
             this.ControlBox = false;
-            this.Controls.Add(this.exitButton);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.howToTextBox);
+            this.Controls.Add(this.ExitButton);
+            this.Controls.Add(this.FoodComponentsTextBox);
+            this.Controls.Add(this.HowToTextBox);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.foodCategoriesTextBox);
+            this.Controls.Add(this.FoodCategoriesTextBox);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.foodNameTextBox);
+            this.Controls.Add(this.FoodNameTextBox);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.foodPictureBox);
             this.Controls.Add(this.label8);
@@ -261,15 +264,15 @@
         private System.Windows.Forms.Panel panelHeader;
         private System.Windows.Forms.Button closeButton;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox foodNameTextBox;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.PictureBox foodPictureBox;
-        private System.Windows.Forms.TextBox howToTextBox;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox foodCategoriesTextBox;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Button exitButton;
+        private System.Windows.Forms.Button ExitButton;
+        public System.Windows.Forms.TextBox FoodNameTextBox;
+        public System.Windows.Forms.PictureBox foodPictureBox;
+        public System.Windows.Forms.TextBox HowToTextBox;
+        public System.Windows.Forms.TextBox FoodCategoriesTextBox;
+        public System.Windows.Forms.TextBox FoodComponentsTextBox;
     }
 }
