@@ -31,7 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoginForm));
             this.panelHeader = new System.Windows.Forms.Panel();
             this.closeButton = new System.Windows.Forms.Button();
-            this.loginButton = new System.Windows.Forms.Button();
+            this.LoginButton = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -39,13 +39,14 @@
             this.wrongUsernameAction = new System.Windows.Forms.PictureBox();
             this.passwordTextBox = new System.Windows.Forms.TextBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.showPassWordPictureBox = new System.Windows.Forms.PictureBox();
             this.usernameTextBox = new System.Windows.Forms.TextBox();
+            this.SohwRegistrationFormButton = new System.Windows.Forms.Button();
             this.panelHeader.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.wrongPassordAction)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.wrongUsernameAction)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.showPassWordPictureBox)).BeginInit();
             this.SuspendLayout();
             // 
             // panelHeader
@@ -75,20 +76,20 @@
             this.closeButton.UseVisualStyleBackColor = false;
             this.closeButton.Click += new System.EventHandler(this.CloseButton_Click);
             // 
-            // loginButton
+            // LoginButton
             // 
-            this.loginButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(138)))), ((int)(((byte)(230)))));
-            this.loginButton.FlatAppearance.BorderSize = 0;
-            this.loginButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.loginButton.Font = new System.Drawing.Font("Arial", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.loginButton.ForeColor = System.Drawing.SystemColors.InactiveBorder;
-            this.loginButton.Location = new System.Drawing.Point(203, 210);
-            this.loginButton.Name = "loginButton";
-            this.loginButton.Size = new System.Drawing.Size(166, 33);
-            this.loginButton.TabIndex = 46;
-            this.loginButton.Text = "دخول";
-            this.loginButton.UseVisualStyleBackColor = false;
-            this.loginButton.Click += new System.EventHandler(this.LoginButton_Click);
+            this.LoginButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(138)))), ((int)(((byte)(230)))));
+            this.LoginButton.FlatAppearance.BorderSize = 0;
+            this.LoginButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.LoginButton.Font = new System.Drawing.Font("Arial", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LoginButton.ForeColor = System.Drawing.SystemColors.InactiveBorder;
+            this.LoginButton.Location = new System.Drawing.Point(203, 210);
+            this.LoginButton.Name = "LoginButton";
+            this.LoginButton.Size = new System.Drawing.Size(166, 33);
+            this.LoginButton.TabIndex = 46;
+            this.LoginButton.Text = "دخول";
+            this.LoginButton.UseVisualStyleBackColor = false;
+            this.LoginButton.Click += new System.EventHandler(this.LoginButton_Click);
             // 
             // label3
             // 
@@ -152,6 +153,8 @@
             this.passwordTextBox.Name = "passwordTextBox";
             this.passwordTextBox.Size = new System.Drawing.Size(140, 22);
             this.passwordTextBox.TabIndex = 39;
+            this.passwordTextBox.TextChanged += new System.EventHandler(this.PasswordTextBox_TextChanged);
+            this.passwordTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.PasswordTextBox_KeyPress);
             // 
             // pictureBox3
             // 
@@ -164,16 +167,18 @@
             this.pictureBox3.TabIndex = 37;
             this.pictureBox3.TabStop = false;
             // 
-            // pictureBox4
+            // showPassWordPictureBox
             // 
-            this.pictureBox4.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
-            this.pictureBox4.Location = new System.Drawing.Point(349, 142);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(20, 33);
-            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox4.TabIndex = 38;
-            this.pictureBox4.TabStop = false;
+            this.showPassWordPictureBox.BackColor = System.Drawing.Color.Transparent;
+            this.showPassWordPictureBox.Image = ((System.Drawing.Image)(resources.GetObject("showPassWordPictureBox.Image")));
+            this.showPassWordPictureBox.Location = new System.Drawing.Point(349, 142);
+            this.showPassWordPictureBox.Name = "showPassWordPictureBox";
+            this.showPassWordPictureBox.Size = new System.Drawing.Size(20, 33);
+            this.showPassWordPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.showPassWordPictureBox.TabIndex = 38;
+            this.showPassWordPictureBox.TabStop = false;
+            this.showPassWordPictureBox.MouseEnter += new System.EventHandler(this.ShowPassWordPictureBox_MouseEnter);
+            this.showPassWordPictureBox.MouseLeave += new System.EventHandler(this.ShowPassWordPictureBox_MouseLeave);
             // 
             // usernameTextBox
             // 
@@ -185,6 +190,23 @@
             this.usernameTextBox.Name = "usernameTextBox";
             this.usernameTextBox.Size = new System.Drawing.Size(140, 22);
             this.usernameTextBox.TabIndex = 36;
+            this.usernameTextBox.TextChanged += new System.EventHandler(this.UsernameTextBox_TextChanged);
+            this.usernameTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.UsernameTextBox_KeyPress);
+            // 
+            // SohwRegistrationFormButton
+            // 
+            this.SohwRegistrationFormButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(138)))), ((int)(((byte)(230)))));
+            this.SohwRegistrationFormButton.FlatAppearance.BorderSize = 0;
+            this.SohwRegistrationFormButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.SohwRegistrationFormButton.Font = new System.Drawing.Font("Arial", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SohwRegistrationFormButton.ForeColor = System.Drawing.SystemColors.InactiveBorder;
+            this.SohwRegistrationFormButton.Location = new System.Drawing.Point(109, 210);
+            this.SohwRegistrationFormButton.Name = "SohwRegistrationFormButton";
+            this.SohwRegistrationFormButton.Size = new System.Drawing.Size(88, 33);
+            this.SohwRegistrationFormButton.TabIndex = 49;
+            this.SohwRegistrationFormButton.Text = "إنشاء";
+            this.SohwRegistrationFormButton.UseVisualStyleBackColor = false;
+            this.SohwRegistrationFormButton.Click += new System.EventHandler(this.SohwRegistrationFormButton_Click);
             // 
             // LoginForm
             // 
@@ -192,14 +214,15 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.MidnightBlue;
             this.ClientSize = new System.Drawing.Size(500, 345);
+            this.Controls.Add(this.SohwRegistrationFormButton);
             this.Controls.Add(this.wrongPassordAction);
             this.Controls.Add(this.panelHeader);
             this.Controls.Add(this.wrongUsernameAction);
             this.Controls.Add(this.passwordTextBox);
-            this.Controls.Add(this.loginButton);
+            this.Controls.Add(this.LoginButton);
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.pictureBox4);
+            this.Controls.Add(this.showPassWordPictureBox);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.usernameTextBox);
             this.Controls.Add(this.label1);
@@ -212,6 +235,7 @@
             this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.RightToLeftLayout = true;
             this.Text = "LoginForm";
+            this.Load += new System.EventHandler(this.LoginForm_Load);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PanelHeader_MouseDown);
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.PanelHeader_MouseMove);
             this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.PanelHeader_MouseUp);
@@ -219,7 +243,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.wrongPassordAction)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.wrongUsernameAction)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.showPassWordPictureBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -228,7 +252,7 @@
         #endregion
 
         private System.Windows.Forms.Panel panelHeader;
-        private System.Windows.Forms.Button loginButton;
+        private System.Windows.Forms.Button LoginButton;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
@@ -237,7 +261,8 @@
         private System.Windows.Forms.PictureBox wrongUsernameAction;
         private System.Windows.Forms.TextBox passwordTextBox;
         private System.Windows.Forms.PictureBox pictureBox3;
-        private System.Windows.Forms.PictureBox pictureBox4;
+        private System.Windows.Forms.PictureBox showPassWordPictureBox;
         private System.Windows.Forms.TextBox usernameTextBox;
+        private System.Windows.Forms.Button SohwRegistrationFormButton;
     }
 }

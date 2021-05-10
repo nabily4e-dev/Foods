@@ -32,11 +32,11 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.UsernameTextBox = new System.Windows.Forms.TextBox();
+            this.PasswordTextBox = new System.Windows.Forms.TextBox();
+            this.ConfirmPasswordTextBox = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.CreateUserButton = new System.Windows.Forms.Button();
             this.exitButton = new System.Windows.Forms.Button();
             this.panelHeader = new System.Windows.Forms.Panel();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
@@ -87,38 +87,38 @@
             this.label3.TabIndex = 2;
             this.label3.Text = "كلمة المرور       :";
             // 
-            // textBox2
+            // UsernameTextBox
             // 
-            this.textBox2.BackColor = System.Drawing.Color.MidnightBlue;
-            this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox2.ForeColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.textBox2.Location = new System.Drawing.Point(223, 122);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(140, 22);
-            this.textBox2.TabIndex = 7;
+            this.UsernameTextBox.BackColor = System.Drawing.Color.MidnightBlue;
+            this.UsernameTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.UsernameTextBox.ForeColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.UsernameTextBox.Location = new System.Drawing.Point(223, 122);
+            this.UsernameTextBox.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
+            this.UsernameTextBox.Name = "UsernameTextBox";
+            this.UsernameTextBox.Size = new System.Drawing.Size(140, 22);
+            this.UsernameTextBox.TabIndex = 7;
             // 
-            // textBox1
+            // PasswordTextBox
             // 
-            this.textBox1.BackColor = System.Drawing.Color.MidnightBlue;
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox1.ForeColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.textBox1.Location = new System.Drawing.Point(224, 162);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(140, 22);
-            this.textBox1.TabIndex = 23;
+            this.PasswordTextBox.BackColor = System.Drawing.Color.MidnightBlue;
+            this.PasswordTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.PasswordTextBox.ForeColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.PasswordTextBox.Location = new System.Drawing.Point(224, 162);
+            this.PasswordTextBox.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
+            this.PasswordTextBox.Name = "PasswordTextBox";
+            this.PasswordTextBox.Size = new System.Drawing.Size(140, 22);
+            this.PasswordTextBox.TabIndex = 23;
             // 
-            // textBox3
+            // ConfirmPasswordTextBox
             // 
-            this.textBox3.BackColor = System.Drawing.Color.MidnightBlue;
-            this.textBox3.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox3.ForeColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.textBox3.Location = new System.Drawing.Point(224, 205);
-            this.textBox3.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(140, 22);
-            this.textBox3.TabIndex = 28;
+            this.ConfirmPasswordTextBox.BackColor = System.Drawing.Color.MidnightBlue;
+            this.ConfirmPasswordTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.ConfirmPasswordTextBox.ForeColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.ConfirmPasswordTextBox.Location = new System.Drawing.Point(224, 205);
+            this.ConfirmPasswordTextBox.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
+            this.ConfirmPasswordTextBox.Name = "ConfirmPasswordTextBox";
+            this.ConfirmPasswordTextBox.Size = new System.Drawing.Size(140, 22);
+            this.ConfirmPasswordTextBox.TabIndex = 28;
             // 
             // label5
             // 
@@ -131,19 +131,20 @@
             this.label5.TabIndex = 26;
             this.label5.Text = "تأكيد كلمة المرور :";
             // 
-            // button1
+            // CreateUserButton
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(138)))), ((int)(((byte)(230)))));
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Arial", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.SystemColors.InactiveBorder;
-            this.button1.Location = new System.Drawing.Point(97, 252);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(311, 33);
-            this.button1.TabIndex = 30;
-            this.button1.Text = "إنشاء";
-            this.button1.UseVisualStyleBackColor = false;
+            this.CreateUserButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(138)))), ((int)(((byte)(230)))));
+            this.CreateUserButton.FlatAppearance.BorderSize = 0;
+            this.CreateUserButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CreateUserButton.Font = new System.Drawing.Font("Arial", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CreateUserButton.ForeColor = System.Drawing.SystemColors.InactiveBorder;
+            this.CreateUserButton.Location = new System.Drawing.Point(97, 252);
+            this.CreateUserButton.Name = "CreateUserButton";
+            this.CreateUserButton.Size = new System.Drawing.Size(311, 33);
+            this.CreateUserButton.TabIndex = 30;
+            this.CreateUserButton.Text = "إنشاء";
+            this.CreateUserButton.UseVisualStyleBackColor = false;
+            this.CreateUserButton.Click += new System.EventHandler(this.CreateUserButton_Click);
             // 
             // exitButton
             // 
@@ -241,14 +242,14 @@
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.panelHeader);
             this.Controls.Add(this.exitButton);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.CreateUserButton);
+            this.Controls.Add(this.ConfirmPasswordTextBox);
             this.Controls.Add(this.pictureBox6);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.PasswordTextBox);
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.pictureBox4);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.UsernameTextBox);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -259,6 +260,7 @@
             this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.RightToLeftLayout = true;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Load += new System.EventHandler(this.RegistrationForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
@@ -275,14 +277,14 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox UsernameTextBox;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.PictureBox pictureBox4;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox PasswordTextBox;
+        private System.Windows.Forms.TextBox ConfirmPasswordTextBox;
         private System.Windows.Forms.PictureBox pictureBox6;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button CreateUserButton;
         private System.Windows.Forms.Button exitButton;
         private System.Windows.Forms.Panel panelHeader;
         private System.Windows.Forms.PictureBox pictureBox1;

@@ -63,5 +63,20 @@ namespace Foods
             this.Close();
 
         }
+
+        private void CreateUserButton_Click(object sender, EventArgs e)
+        {
+
+
+
+        }
+
+        private void RegistrationForm_Load(object sender, EventArgs e)
+        {
+
+            Database.OpenConnection();
+
+
+        }
     }
 }

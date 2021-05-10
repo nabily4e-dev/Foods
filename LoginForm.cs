@@ -1,11 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Foods
@@ -33,7 +28,7 @@ namespace Foods
         private void CloseButton_Click(object sender, EventArgs e)
         {
 
-            this.Close();
+            Close();
 
         }
 
@@ -75,15 +70,28 @@ namespace Foods
         private void LoginButton_Click(object sender, EventArgs e)
         {
 
-            if (usernameTextBox.Text == "napil" && passwordTextBox.Text == "123")
+            //Database.RunRequest("INSERT INTO users (username, user_password) VALUES('napil303', '123');");
+            DataTable UsersDataTable = Database.GetData("SELECT username, user_password from users");
+
+            foreach (DataRow row in UsersDataTable.Rows)
             {
 
-                wrongUsernameAction.BackColor = Color.MediumSpringGreen;
-                wrongPassordAction.BackColor = Color.MediumSpringGreen;
-                loginButton.BackColor = Color.SpringGreen;
+                if (usernameTextBox.Text == row["username"].ToString() && passwordTextBox.Text == row["user_password"].ToString())
+                {
+
+                    wrongUsernameAction.BackColor = Color.MediumSpringGreen;
+                    wrongPassordAction.BackColor = Color.MediumSpringGreen;
+                    LoginButton.BackColor = Color.SpringGreen;
+
+                }
+                else
+                {
+
+                    wrongUsernameAction.BackColor = Color.FromArgb(46, 138, 230);
+
+                }
 
             }
-
 
         }
 
@@ -96,23 +104,183 @@ namespace Foods
 
         private void UsernameTextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
+            //DataTable UsersDataTable = Database.GetData("SELECT username, user_password from users");
 
-            ControlSetFocus(passwordTextBox);
+            //if (usernameTextBox.Text != "")
+            //{
 
-            if (usernameTextBox.Text == "napil")
-            {
+            //    foreach (DataRow row in UsersDataTable.Rows)
+            //    {
 
-                wrongUsernameAction.BackColor = Color.MediumSpringGreen;
+            //        if (usernameTextBox.Text == row["username"].ToString())
+            //        {
 
-            }
+            //            wrongUsernameAction.BackColor = Color.MediumSpringGreen;
+
+            //        }
+            //        else
+            //        {
+
+            //            wrongUsernameAction.BackColor = Color.FromArgb(46, 138, 230);
+
+            //        }
+
+            //    }
+
+            //}
+
+            //if (Control.ModifierKeys == Keys.Enter)
+            //{
+
+            //    ControlSetFocus(passwordTextBox);
+
+            //}
 
         }
 
         private void PasswordTextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
 
-            LoginButton_Click(sender, e);
+            //DataTable UsersDataTable = Database.GetData("SELECT username, user_password from users");
+
+            //if (passwordTextBox.Text != "")
+            //{
+
+            //    foreach (DataRow row in UsersDataTable.Rows)
+            //    {
+
+            //        if (passwordTextBox.Text == row["user_password"].ToString())
+            //        {
+
+            //            wrongPassordAction.BackColor = Color.MediumSpringGreen;
+
+            //        }
+            //        else
+            //        {
+
+            //            wrongPassordAction.BackColor = Color.FromArgb(46, 138, 230);
+
+            //        }
+
+            //    }
+
+            //}
+
+            //if (Control.ModifierKeys == Keys.Enter)
+            //{
+
+            //    //ControlSetFocus(passwordTextBox);
+            //    LoginButton_Click(sender, e);
+
+
+            //}
+
 
         }
+
+        private void SohwRegistrationFormButton_Click(object sender, EventArgs e)
+        {
+
+            RegistrationForm register = new RegistrationForm();
+            register.Show();
+            Database.CloseConnection();
+
+        }
+
+        private void LoginForm_Load(object sender, EventArgs e)
+        {
+
+            passwordTextBox.UseSystemPasswordChar = true;
+            Database.OpenConnection();
+
+        }
+
+        private void PasswordTextBox_TextChanged(object sender, EventArgs e)
+        {
+
+            DataTable UsersDataTable = Database.GetData("SELECT username, user_password from users");
+
+            if (passwordTextBox.Text != "")
+            {
+
+                foreach (DataRow row in UsersDataTable.Rows)
+                {
+
+                    if (passwordTextBox.Text == row[0].ToString())
+                    {
+
+                        wrongPassordAction.BackColor = Color.MediumSpringGreen;
+
+                    }
+                    else
+                    {
+
+                        wrongPassordAction.BackColor = Color.FromArgb(46, 138, 230);
+
+                    }
+
+                }
+
+            }
+
+            if (Control.ModifierKeys == Keys.Enter)
+            {
+
+                ControlSetFocus(passwordTextBox);
+
+            }
+
+        }
+
+        private void UsernameTextBox_TextChanged(object sender, EventArgs e)
+        {
+
+            DataTable UsersDataTable = Database.GetData("SELECT username, user_password from users");
+            if(MyUse)
+            if (usernameTextBox.Text != "")
+            {
+
+
+                for (int x = 0; x < UsersDataTable.Rows.Count; x++)
+                {
+
+                    DataRow row = UsersDataTable.Rows[x];
+
+                    if (usernameTextBox.Text == row.ToString())
+                    {
+
+                        wrongUsernameAction.BackColor = Color.MediumSpringGreen;
+
+                    }
+                    else
+                    {
+
+                        wrongUsernameAction.BackColor = Color.FromArgb(46, 138, 230);
+
+                    }
+
+                }
+
+            }
+
+            if (Control.ModifierKeys == Keys.Enter)
+            {
+
+                ControlSetFocus(passwordTextBox);
+
+            }
+
+        }
+
+        private void ShowPassWordPictureBox_MouseEnter(object sender, EventArgs e)
+        {
+            passwordTextBox.UseSystemPasswordChar = false;
+        }
+
+        private void ShowPassWordPictureBox_MouseLeave(object sender, EventArgs e)
+        {
+            passwordTextBox.UseSystemPasswordChar = true;
+        }
     }
+
 }

@@ -14,7 +14,7 @@ namespace Foods
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FoodsForm());
+            Application.Run(new LoginForm());
 
         }
     }
